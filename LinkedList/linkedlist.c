@@ -32,6 +32,31 @@ void insert_at_end(Node **head, int val){
   }
   cur->next = nn;
 }
+
+void insert_at_pos(Node **head,int pos,int val){
+  if(pos<0) return;
+ if(*head==NULL){
+   perror("Empty list");
+   return;
+ }
+ if(pos==1){
+   insert_at_beginning(head,val);
+   return;
+ }
+ int curpos =1;
+ Node *cur = *head;
+ while(cur!=NULL && curpos<pos-1){
+    cur=cur->next;
+    curpos++;
+ }
+ if(cur==NULL){
+   printf("pos is larger than list");
+   return;
+ }
+ Node *nn = create(val);
+ nn->next=cur->next;
+ cur->next =nn;
+}
  void delete_value(Node **head, int val){
   if(*head==NULL){
   printf("List is NULL");

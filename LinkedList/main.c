@@ -12,6 +12,7 @@ int main(){
   insert_at_beginning(&head,69);
   print_list(head);
   delete_value(&head,30);
+  insert_at_pos(&head,3,67);
   print_list(head);
   free_list(&head);
 }
